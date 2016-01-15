@@ -23,14 +23,14 @@ def make_paths_list():
                 if i == N_IMG:
                     return d
 
-    raise Error("N_IMG cannot be greater than 2000")
+    raise Error("N_IMG cannot be greater than 1998")
 
 
 def make_feats(paths):
     chunks=[paths[x:x+100] for x in xrange(0, len(paths), 100)]
     feats = []
     for chunk in chunks:
-        feats.extend(indicoio.image_features(chunk, batch=True, v=3))
+        feats.extend(indicoio.image_features(chunk, batch=True, version=3))
     return feats
 
 
@@ -41,11 +41,11 @@ def calculate_sim(feats):
     for i in range(N_IMG):
         r = []
         for j in range(N_IMG):
-            tup = ((1 - distances[q(i,j,N_IMG)]), j)
+            tup = (distances[q(i,j,N_IMG)], j)
             if i == j:
                 tup = (0, j)
             r.append(tup)
-        r = sorted(r, key=lambda x: (-1 * x[0]))
+        r = sorted(r, key=lambda x: x[0])
         m.append(r)
     return m
 
