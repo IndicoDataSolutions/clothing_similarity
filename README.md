@@ -1,1 +1,1 @@
-A simple script for predicting image similarity between clothing stock photos using the indico python client library. See the [walkthrough](link to blog post) for more information!
+A simple script for predicting image similarity between clothing stock photos using the indico python client library. See the [walkthrough](https://indico.io/blog/clothing-similarity-how-a-program-is-more-fashionable-than-me/) for more information!
